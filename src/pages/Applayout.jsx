@@ -1,9 +1,13 @@
+import PageNav from "../components/PageNav";
+
 function Applayout() {
-    return (
-        <div>
-            Applayout
-        </div>
-    )
+  return (
+    <>
+      <PageNav />
+
+      <div>Applayout</div>
+    </>
+  );
 }
 
-export default Applayout
+export default Applayout;
