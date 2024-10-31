@@ -9,10 +9,10 @@
   /* background-color: #f4e7d4; */
 }
 
-.react-icons {
-  color: #f6f6f6;
+.active {
+  color: #b03030;
+  text-decoration: underline;
 }
-
 /* :root {
   --primary-color: #B03030;
   --accent-color: #F4D35E;

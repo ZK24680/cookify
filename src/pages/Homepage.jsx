@@ -1,12 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import PageNav from "../components/PageNav";
 
 function Homepage() {
+  const navigate = useNavigate();
+
   return (
     <main className="grid h-screen grid-rows-[5rem_1fr] overflow-scroll bg-[#f4e7d4]">
       <PageNav />
 
-      <section className="mx-auto grid w-11/12 grid-cols-1 p-10 md:grid-cols-2 md:grid-rows-[2fr_1fr]">
+      <section
+        id="heroSection"
+        className="mx-auto grid w-11/12 grid-cols-1 p-10 md:grid-cols-2 md:grid-rows-[2fr_1fr]"
+      >
         <div className="flex flex-col justify-center">
           <div className="w-full text-center text-2xl sm:text-4xl md:w-11/12 md:text-start md:text-2xl lg:text-4xl xl:text-4xl 2xl:text-5xl">
             <h1 className="font-bold tracking-tighter text-[#991b1b]">
@@ -26,12 +32,19 @@ function Homepage() {
           </p>
 
           <div className="mt-8 flex justify-center md:justify-start">
-            <Button type="primary">Explore now</Button>
+            <Button type="primary" onClick={() => navigate("/recipes")}>
+              Explore now
+            </Button>
           </div>
         </div>
 
         <div className="hidden items-center justify-center md:flex">
-          <img src="../src/assets/images/food2.png" width="90%" height="90%" />
+          <img
+            src="../src/assets/images/food2.png"
+            width="90%"
+            alt="recipe"
+            height="90%"
+          />
         </div>
 
         <div className="md:col-span-2">Slider</div>
