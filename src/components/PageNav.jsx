@@ -12,9 +12,12 @@ function PageNav() {
 
       <Navlinks isOpen={isOpen} />
 
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-x-6">
         <span>Sign in</span>
-        <NavbarToggle onClick={() => setIsOpen((isOpen) => !isOpen)} />
+        <NavbarToggle
+          isOpen={isOpen}
+          onClick={() => setIsOpen((isOpen) => !isOpen)}
+        />
       </div>
     </nav>
   );
