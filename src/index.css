@@ -13,6 +13,12 @@
   color: #b03030;
   text-decoration: underline;
 }
+
+@media (max-width: 639px) {
+  .sidebar {
+    grid-row: 3;
+  }
+}
 /* :root {
   --primary-color: #B03030;
   --accent-color: #F4D35E;

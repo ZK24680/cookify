@@ -6,10 +6,10 @@ function Homepage() {
   const navigate = useNavigate();
 
   return (
-    <main className="grid h-screen grid-rows-[5rem_1fr] overflow-scroll bg-[#f4e7d4]">
+    <div className="grid h-screen grid-rows-[5rem_1fr] overflow-scroll bg-[#f4e7d4]">
       <PageNav />
 
-      <section
+      <main
         id="heroSection"
         className="mx-auto grid w-11/12 grid-cols-1 p-10 md:grid-cols-2 md:grid-rows-[2fr_1fr]"
       >
@@ -48,8 +48,8 @@ function Homepage() {
         </div>
 
         <div className="md:col-span-2">Slider</div>
-      </section>
-    </main>
+      </main>
+    </div>
   );
 }
 
