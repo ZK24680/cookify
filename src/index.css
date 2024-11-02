@@ -2,16 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #b03030;
+  --accent-color: #f4d35e;
+  --background-color: #f4e7d4;
+  --secondary-background-color: #f7f0e6;
+  --background-fade: #f4e7d493;
+  --secondary-color: #4a302f;
+  --primary-text-color: #333333;
+  --secondary-text-color: #ffffff;
+  --border-color: #ffffff;
+}
 * {
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  color: #333333;
-  /* background-color: #f4e7d4; */
 }
 
-.active {
-  color: #b03030;
+.page-nav li .active {
+  color: var(--primary-color);
   text-decoration: underline;
+}
+
+.main-nav li .active {
+  background-color: var(--primary-color);
+  color: var(--secondary-text-color);
 }
 
 @media (max-width: 639px) {
@@ -19,10 +32,3 @@
     grid-row: 3;
   }
 }
-/* :root {
-  --primary-color: #B03030;
-  --accent-color: #F4D35E;
-  --background-color: #F4E7D4;
-  --secondary-color: #4A302F;
-  --text-color: #333333;
-} */

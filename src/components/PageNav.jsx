@@ -13,10 +13,10 @@ function PageNav() {
 
   return (
     <nav
-      className={`sticky top-0 mx-auto flex ${isAppLayout ? "w-full" : "w-11/12"} items-center justify-between bg-[#f4e7d493] px-4 py-2 backdrop-blur-sm sm:justify-end md:justify-between`}
+      className={`sticky top-0 mx-auto flex ${isAppLayout ? "w-full border-b border-[var(--border-color)] px-4 md:px-6" : "w-11/12 px-4"} items-center justify-between bg-[var(--background-fade)] py-2 backdrop-blur-sm ${isAppLayout ? "sm:justify-end" : ""} md:justify-between`}
     >
       <div className={`${isAppLayout ? "block sm:hidden" : ""} `}>
-        <Logo />
+        <Logo style={"h-11 md:h-14 xl:h-24"} />
       </div>
 
       <Navlinks isOpen={isOpen} />
