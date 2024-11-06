@@ -2,7 +2,7 @@ function Logo({ style }) {
   return (
     <div>
       <img
-        src="./cookify-logo.png"
+        src="../src/assets/images/cookify-logo.png"
         alt="cookify-logo"
         className={`${style} cursor-pointer`}
       />

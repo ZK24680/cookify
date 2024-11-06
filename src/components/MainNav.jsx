@@ -11,9 +11,9 @@ function MainNav() {
   };
 
   return (
-    <ul className="main-nav grid h-full w-full grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr] overflow-hidden bg-[#ffffff42] px-4 py-2 backdrop-blur-md sm:flex sm:h-auto sm:w-auto sm:flex-col">
+    <ul className="main-nav grid h-full w-full grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr] overflow-hidden bg-[#ffffff42] px-4 py-2 backdrop-blur-md sm:flex sm:h-auto sm:w-auto sm:flex-col 2xl:w-5/6">
       <li className="w-full sm:w-auto">
-        <NavLink to={"/search"} className={`${style["navlinkStyle"]}`}>
+        <NavLink to={"search"} className={`${style["navlinkStyle"]}`}>
           <HiSearch className={style["navIcon"]} />
 
           <span className={style["navText"]}>Search</span>

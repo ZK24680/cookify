@@ -1,7 +1,7 @@
-function Main() {
+function Main({ children }) {
   return (
-    <main className="bg-[var(--secondary-background-color)]">
-      Recipes ShowCase
+    <main className="overflow-hidden bg-[var(--secondary-background-color)] p-3">
+      {children}
     </main>
   );
 }

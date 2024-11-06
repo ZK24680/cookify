@@ -7,13 +7,22 @@ function Navlinks({ isOpen }) {
       className={`page-nav absolute bottom-0 right-0 w-full translate-y-full items-center justify-end py-3 transition-all duration-75 md:static md:flex md:w-auto md:translate-y-0 md:flex-row md:justify-between md:gap-x-8 md:bg-transparent md:px-0 md:py-0 ${isOpen ? "flex gap-x-5 bg-[var(--background-color)] px-4" : "hidden"}`}
     >
       <li>
-        <NavLink to={"/"}>Home</NavLink>
+        <NavLink className={"hover:text-[var(--primary-color)]"} to={"/"}>
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/recipes">Recipes</NavLink>
+        <NavLink className={"hover:text-[var(--primary-color)]"} to="/recipes">
+          Recipes
+        </NavLink>
       </li>
       <li>
-        <NavLink to={"/aboutus"}>About Us</NavLink>
+        <NavLink
+          className={"hover:text-[var(--primary-color)]"}
+          to={"/aboutus"}
+        >
+          About Us
+        </NavLink>
       </li>
     </ul>
   );
