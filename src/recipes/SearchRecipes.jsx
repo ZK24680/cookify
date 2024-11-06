@@ -1,4 +1,5 @@
 import Search from "../components/Search";
+import Recipes from "./Recipes";
 
 const fakedata = [
   {
@@ -58,8 +59,10 @@ const fakedata = [
 
 function SearchRecipes() {
   return (
-    <div className="h-full w-full bg-red-700">
+    <div className="h-full w-full">
       <Search />
+
+      <Recipes recipes={fakedata} />
     </div>
   );
 }
