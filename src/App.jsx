@@ -15,6 +15,8 @@ import Vegan from "./recipes/Vegan";
 import Side from "./recipes/Side";
 import Dessert from "./recipes/Dessert";
 import RecipeDetails from "./recipes/RecipeDetails";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const router = createBrowserRouter([
   {
@@ -73,8 +75,21 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+    },
+  },
+});
+
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;

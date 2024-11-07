@@ -1,0 +1,16 @@
+export async function getRecipes({ searchQuery }) {
+  try {
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchQuery}`,
+    );
+
+    if (!res.ok) throw new Error("Something went wrong");
+
+    const data = await res.json();
+
+    console.log(data);
+    return data.meals;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+}
