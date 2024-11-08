@@ -1,5 +1,7 @@
+import RecipesShowCase from "./RecipesShowCase";
+
 function Side() {
-  return <div>Side</div>;
+  return <RecipesShowCase category={"side"} />;
 }
 
 export default Side;

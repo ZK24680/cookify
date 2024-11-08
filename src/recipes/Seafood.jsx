@@ -1,5 +1,7 @@
+import RecipesShowCase from "./RecipesShowCase";
+
 function Seafood() {
-  return <div>seafood</div>;
+  return <RecipesShowCase category={"seafood"} />;
 }
 
 export default Seafood;

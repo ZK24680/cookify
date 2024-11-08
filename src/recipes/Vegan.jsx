@@ -1,5 +1,7 @@
+import RecipesShowCase from "./RecipesShowCase";
+
 function Vegan() {
-  return <div>Vegan</div>;
+  return <RecipesShowCase category={"Vegetarian"} />;
 }
 
 export default Vegan;

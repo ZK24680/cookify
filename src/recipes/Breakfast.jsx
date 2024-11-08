@@ -1,5 +1,7 @@
+import RecipesShowCase from "./RecipesShowCase";
+
 function Breakfast() {
-  return <div>Breakfast</div>;
+  return <RecipesShowCase category={"breakfast"} />;
 }
 
 export default Breakfast;
