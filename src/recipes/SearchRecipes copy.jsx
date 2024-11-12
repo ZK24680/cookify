@@ -4,24 +4,23 @@ import Recipes from "./Recipes";
 import useRecipes from "./useRecipes";
 import Message from "../components/Message";
 import Spinner from "../components/Spinner";
-import useUrlSearch from "../hooks/useUrlSearch";
 
 function SearchRecipes() {
-  const search = useUrlSearch();
-  console.log(search);
-  const { data, error, isLoading, refetch } = useRecipes();
+  const [query, setQuery] = useState("");
+
+  const { data, error, isLoading, refetch } = useRecipes(query);
 
   useEffect(
     function () {
-      if (search === null) return;
+      if (query === "") return;
       refetch();
     },
-    [search, refetch],
+    [query, refetch],
   );
 
   return (
     <div className="h-full w-full">
-      <Search isLoading={isLoading} />
+      <Search setQuery={setQuery} isLoading={isLoading} refetch={refetch} />
 
       {isLoading && <Spinner />}
 

@@ -2,14 +2,18 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import Button from "./Button";
 import { useState } from "react";
 import useRecipes from "../recipes/useRecipes";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
-function Search({ setQuery, isLoading }) {
-  const [searchQuery, setSearchQuery] = useState("");
+function Search({ isLoading }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("main");
+  const [searchQuery, setSearchQuery] = useState(query ? query : "");
 
   function handleClick() {
     if (!searchQuery.length) return;
+    searchParams.set("main", searchQuery);
 
-    setQuery(searchQuery);
+    setSearchParams(searchParams);
   }
 
   return (
