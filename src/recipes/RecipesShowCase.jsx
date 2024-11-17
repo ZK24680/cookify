@@ -12,7 +12,7 @@ function RecipesShowCase({ category }) {
 
       {error && <Message message={error} />}
 
-      {data && <Recipes recipes={data} />}
+      {data && <Recipes recipes={data} />} 
     </div>
   );
 }

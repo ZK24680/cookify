@@ -1,0 +1,48 @@
+import { Link } from "react-router-dom";
+import Button from "../components/Button";
+import Logo from "../components/Logo";
+
+function Signinform() {
+  return (
+    <div className="flex w-11/12 flex-col items-center rounded-xl bg-[var(--background-color)] p-4 shadow-2xl sm:w-4/5 md:w-2/3 md:pb-11 xl:w-2/5 xl:pb-16">
+      <Logo style={`xl:h-56 h-24 sm:h-44 `} />
+
+      <form className="flex w-11/12 flex-col items-center gap-5 md:text-xl xl:text-2xl">
+        <div className="flex w-full flex-col gap-3 sm:w-5/6">
+          <label>Enter Email</label>
+          <input
+            type="email"
+            required
+            autoFocus
+            className="rounded-md border-2 border-[var(--secndary-color)] bg-none px-1 py-2 outline-none ring-[var(--accent-color)] focus:border-[var(--accent-color)] focus:ring-2 md:text-sm xl:text-xl"
+          />
+        </div>
+
+        <div className="flex w-full flex-col gap-3 sm:w-5/6">
+          <label>Enter Password</label>
+          <input
+            type="password"
+            required
+            autoFocus
+            className="rounded-md border-2 border-[var(--secndary-color)] bg-none px-1 py-2 outline-none ring-[var(--accent-color)] focus:border-[var(--accent-color)] focus:ring-2 md:text-sm xl:text-xl"
+          />
+        </div>
+
+        <div className="flex w-full flex-col gap-3 sm:w-5/6">
+          <Button type="submit">Sign In</Button>
+        </div>
+      </form>
+      <p className="mt-6 w-full text-center text-xs sm:w-5/6 sm:text-sm xl:text-lg">
+        Don&apos;t have an account?{" "}
+        <Link
+          to={`/signup`}
+          className="text-blue-800 underline hover:text-[var(--primary-color)]"
+        >
+          Sign Up here
+        </Link>
+      </p>
+    </div>
+  );
+}
+
+export default Signinform;

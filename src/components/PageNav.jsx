@@ -2,9 +2,12 @@ import { useState } from "react";
 import Logo from "./Logo";
 import NavbarToggle from "./NavbarToggle";
 import Navlinks from "./Navlinks";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Button from "./Button";
+import { HiUserCircle } from "react-icons/hi";
 
 function PageNav() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const location = useLocation();
@@ -21,8 +24,12 @@ function PageNav() {
 
       <Navlinks isOpen={isOpen} />
 
-      <div className="flex items-center gap-x-6">
-        <span>Sign in</span>
+      <div className="flex items-center gap-x-1">
+        <Button type="signIn" onClick={() => navigate("/signin")}>
+          <HiUserCircle size={"20px"} />{" "}
+          <span className="hidden sm:inline">Sign In</span>
+        </Button>
+
         <NavbarToggle
           isOpen={isOpen}
           onClick={() => setIsOpen((isOpen) => !isOpen)}
