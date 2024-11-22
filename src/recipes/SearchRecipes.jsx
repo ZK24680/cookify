@@ -8,7 +8,7 @@ import useUrlSearch from "../hooks/useUrlSearch";
 
 function SearchRecipes() {
   const search = useUrlSearch();
-  console.log(search);
+
   const { data, error, isLoading, refetch } = useRecipes();
 
   useEffect(

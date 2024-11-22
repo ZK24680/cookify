@@ -29,7 +29,7 @@ function Search({ isLoading }) {
           className={`w-3/4 bg-transparent text-sm focus:outline-none lg:text-xl ${isLoading ? "text-slate-400" : ""}`}
           placeholder="Search by main ingredients"
         />
-        <Button type="search" onClick={handleClick} disabled={isLoading}>
+        <Button type="icon" onClick={handleClick} disabled={isLoading}>
           <HiMagnifyingGlass />
         </Button>
       </div>

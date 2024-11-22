@@ -40,7 +40,6 @@ export async function getRecipesByCategory(category) {
 
     const data = await res.json();
 
-    console.log(data);
     return data.meals;
   } catch (err) {
     throw new Error(err.message);
