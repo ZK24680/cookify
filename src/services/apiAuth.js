@@ -37,7 +37,7 @@ export async function updateUser({ fullName, password, avatar }) {
   let updateData;
 
   if (password) updateData = { password };
-  if (!password)
+  if (fullName)
     updateData = {
       data: {
         fullName,

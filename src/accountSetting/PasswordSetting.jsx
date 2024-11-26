@@ -1,7 +1,30 @@
+import { useState } from "react";
 import Button from "../components/Button";
 import FormRowVertical from "../components/FormRowVertical";
 
-function PasswordSetting() {
+function PasswordSetting({ updateInfo, isUpdating }) {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  function onhandleSubmit(e) {
+    if (
+      password !== confirmPassword ||
+      password === "" ||
+      confirmPassword === ""
+    )
+      return;
+
+    updateInfo(
+      { password },
+      {
+        onSuccess: () => {
+          setPassword("");
+          setConfirmPassword("");
+        },
+      },
+    );
+  }
+
   return (
     <div className="flex w-full flex-col gap-3">
       <h2 className="p-2 text-3xl">Update Password</h2>
@@ -14,8 +37,15 @@ function PasswordSetting() {
           <input
             id="password"
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="rounded-lg bg-[var(--background-color)] px-4 py-2 text-sm shadow-md focus:outline-none"
           />
+          {password.length >= 8 || password === "" ? null : (
+            <p className="text-[#9b1a1a] sm:px-4">
+              Password must be minimun 8 Characters
+            </p>
+          )}
         </FormRowVertical>
 
         <FormRowVertical>
@@ -25,13 +55,22 @@ function PasswordSetting() {
           <input
             id="confirmpassword"
             type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             className="rounded-lg bg-[var(--background-color)] px-4 py-2 text-sm shadow-md focus:outline-none"
           />
+          {password === confirmPassword || confirmPassword === "" ? null : (
+            <p className="text-[#9b1a1a] sm:px-4">password did not match</p>
+          )}
         </FormRowVertical>
 
         <FormRowVertical role={"button"}>
-          <Button type="danger">Cancel</Button>
-          <Button>Update Password</Button>
+          <Button type="danger" disabled={isUpdating}>
+            Cancel
+          </Button>
+          <Button disabled={isUpdating}>
+            {isUpdating ? "Updating..." : "Update Password"}
+          </Button>
         </FormRowVertical>
       </form>
     </div>

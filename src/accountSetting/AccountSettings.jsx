@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import useLogout from "../authentication/useLogout";
+import useUpdate from "../authentication/useUpdate";
+
 import Button from "../components/Button";
 import { useAuth } from "../contexts/AuthContext";
 import PasswordSetting from "./PasswordSetting";
@@ -10,6 +12,8 @@ function AccountSettings() {
   const navigate = useNavigate();
   const { logout, isPending } = useLogout();
   const { isAuthenticated, email, isLoading, fullName, avatar } = useAuth();
+
+  const { updateInfo, isPending: isUpdating } = useUpdate();
 
   useEffect(() => {
     if (!isAuthenticated && !isLoading) navigate("/signin");
@@ -33,8 +37,14 @@ function AccountSettings() {
           Log Out
         </Button>
       </div>
-      <ProfileSetting email={email} name={fullName} avatar={avatar} />
-      <PasswordSetting />
+      <ProfileSetting
+        email={email}
+        name={fullName}
+        avatar={avatar}
+        isUpdating={isUpdating}
+        updateInfo={updateInfo}
+      />
+      <PasswordSetting updateInfo={updateInfo} isUpdating={isUpdating} />
     </div>
   );
 }

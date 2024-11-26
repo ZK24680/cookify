@@ -1,12 +1,10 @@
 import { useState } from "react";
 import Button from "../components/Button";
 import FormRowVertical from "../components/FormRowVertical";
-import useUpdate from "../authentication/useUpdate";
 
-function ProfileSetting({ email, name, avatar }) {
+function ProfileSetting({ email, name, avatar, updateInfo, isUpdating }) {
   const [fullName, setFullName] = useState(name);
   const [img, setImg] = useState(null);
-  const { updateInfo, isPending } = useUpdate();
 
   function onhandleSubmit(e) {
     e.preventDefault();
@@ -74,9 +72,11 @@ function ProfileSetting({ email, name, avatar }) {
         </FormRowVertical>
 
         <FormRowVertical role={"button"}>
-          <Button type="danger">Cancel</Button>
-          <Button type="primary" disabled={isPending}>
-            Update account
+          <Button type="danger" disabled={isUpdating}>
+            Cancel
+          </Button>
+          <Button type="primary" disabled={isUpdating}>
+            {isUpdating ? "Updating...." : "Update account"}
           </Button>
         </FormRowVertical>
       </form>
