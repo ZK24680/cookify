@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 import useUser from "../authentication/useUser";
-import Spinner from "../components/Spinner";
+import FullPageSpinner from "../components/FullPageSpinner";
 
 const AuthContext = createContext();
 
@@ -20,7 +20,7 @@ function AuthProvider({ children }) {
         avatar: user?.user_metadata?.avatar,
       }}
     >
-      {isLoading ? <Spinner /> : children}
+      {isLoading ? <FullPageSpinner /> : children}
     </AuthContext.Provider>
   );
 }

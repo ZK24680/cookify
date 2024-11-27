@@ -9,7 +9,7 @@ import { useAuth } from "../contexts/AuthContext";
 import UserAvatar from "../authentication/UserAvatar";
 
 function PageNav() {
-  const { isAuthenticated, userID } = useAuth();
+  const { isAuthenticated, userID, avatar } = useAuth();
 
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +29,7 @@ function PageNav() {
 
       <div className="flex items-center gap-x-1">
         {isAuthenticated ? (
-          <UserAvatar />
+          <UserAvatar avatar={avatar} />
         ) : (
           <Button type="signIn" onClick={() => navigate("/signin")}>
             <HiUserCircle size={"20px"} className="hidden sm:inline" />{" "}

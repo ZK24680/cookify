@@ -6,15 +6,24 @@ import RecipeImage from "../components/RecipeImage";
 import { useRecipe } from "./useRecipe";
 import Spinner from "../components/Spinner";
 import ButtonGroup from "../components/ButtonGroup";
+import useRecipesByCate from "./useRecipesByCate";
 
 function RecipeDetails() {
   const { recipe, error, isLoading } = useRecipe();
+  const { data: savedRecipes, isLoading: isFetching } =
+    useRecipesByCate("saved");
 
-  if (isLoading) return <Spinner />;
+  const isSaved = savedRecipes
+    ?.map((recipe) => recipe?.idMeal)
+    .includes(Number(recipe?.idMeal));
+
+  console.log(isSaved, recipe?.idMeal);
+
+  if (isLoading || isFetching) return <Spinner />;
 
   return (
     <div className="h-full w-full overflow-scroll px-3 pb-9">
-      <ButtonGroup />
+      <ButtonGroup isSaved={isSaved} recipe={recipe} />
       <RecipeCategory
         meal={recipe.strMeal}
         category={recipe.strCategory}

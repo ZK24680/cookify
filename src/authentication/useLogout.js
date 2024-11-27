@@ -10,7 +10,9 @@ function useLogout() {
   } = useMutation({
     mutationFn: logoutApi,
     onSuccess: () => {
-      queryClient.invalidateQueries();
+      queryClient.invalidateQueries({
+        queryKey: ["user"],
+      });
     },
   });
 

@@ -1,3 +1,5 @@
+import { supabase } from "./supabase";
+
 export async function getRecipe({ mealId }) {
   try {
     const res = await fetch(
@@ -44,4 +46,35 @@ export async function getRecipesByCategory(category) {
   } catch (err) {
     throw new Error(err.message);
   }
+}
+
+export async function getSavedRecipes() {
+  let { data: savedRecipes, error } = await supabase
+    .from("savedRecipes")
+    .select("*");
+
+  if (error) throw new Error(error.message);
+
+  return savedRecipes;
+}
+
+export async function removeFromSaved(idMeal) {
+  const { error } = await supabase
+    .from("savedRecipes")
+    .delete()
+    .eq("idMeal", idMeal);
+
+  if (error) throw new Error(error.message);
+}
+
+export async function addToSaved(meal) {
+  const { data, error } = await supabase
+    .from("savedRecipes")
+    .insert([{ ...meal }])
+    .select()
+    .single();
+
+  if (error) throw new Error(error.message);
+
+  return data;
 }
