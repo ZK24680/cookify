@@ -5,10 +5,11 @@ import useRecipes from "./useRecipes";
 import Message from "../components/Message";
 import Spinner from "../components/Spinner";
 import useUrlSearch from "../hooks/useUrlSearch";
+import { useAuth } from "../contexts/AuthContext";
 
 function SearchRecipes() {
   const search = useUrlSearch();
-
+  const { fullName } = useAuth();
   const { data, error, isLoading, refetch } = useRecipes();
 
   useEffect(
@@ -31,9 +32,7 @@ function SearchRecipes() {
 
       {data === undefined && !isLoading && (
         <Message
-          message={
-            "🧑‍🍳 Start your cooking journey by searching for delicious meals 🍴"
-          }
+          message={`🧑‍🍳 Hello ${fullName.split(" ").at(0)}! Start your cooking journey by searching for delicious meals 🍴`}
         />
       )}
 

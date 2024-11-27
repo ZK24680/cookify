@@ -1,6 +1,6 @@
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import Button from "./Button";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useRecipes from "../recipes/useRecipes";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
@@ -9,12 +9,24 @@ function Search({ isLoading }) {
   const query = searchParams.get("main");
   const [searchQuery, setSearchQuery] = useState(query ? query : "");
 
-  function handleClick() {
+  const handleClick = useCallback(() => {
     if (!searchQuery.length) return;
+    console.log("hi");
     searchParams.set("main", searchQuery);
 
     setSearchParams(searchParams);
-  }
+  }, [searchParams, setSearchParams, searchQuery]);
+
+  useEffect(() => {
+    function enterEvent(e) {
+      if (e.key === "Enter") handleClick();
+    }
+
+    document.addEventListener("keypress", enterEvent);
+
+    //clean up func for eventlistener
+    return () => document.removeEventListener("keypress", enterEvent);
+  }, [handleClick]);
 
   return (
     <div className="w-full p-2">
