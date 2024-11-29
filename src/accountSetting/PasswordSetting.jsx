@@ -7,10 +7,12 @@ function PasswordSetting({ updateInfo, isUpdating }) {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   function onhandleSubmit(e) {
+    e.preventDefault();
     if (
       password !== confirmPassword ||
       password === "" ||
-      confirmPassword === ""
+      confirmPassword === "" ||
+      password.length < 8
     )
       return;
 
@@ -29,7 +31,10 @@ function PasswordSetting({ updateInfo, isUpdating }) {
     <div className="flex w-full flex-col gap-3">
       <h2 className="p-2 text-3xl">Update Password</h2>
 
-      <form className="flex w-full flex-col gap-5 rounded-lg bg-[#fff] p-7">
+      <form
+        onSubmit={onhandleSubmit}
+        className="flex w-full flex-col gap-5 rounded-lg bg-[#fff] p-7"
+      >
         <FormRowVertical>
           <label htmlFor="password" className="cursor-pointer">
             New Password (min 8 chars)
@@ -60,7 +65,7 @@ function PasswordSetting({ updateInfo, isUpdating }) {
             className="rounded-lg bg-[var(--background-color)] px-4 py-2 text-sm shadow-md focus:outline-none"
           />
           {password === confirmPassword || confirmPassword === "" ? null : (
-            <p className="text-[#9b1a1a] sm:px-4">password did not match</p>
+            <p className="text-[#9b1a1a] sm:px-4">password do not match</p>
           )}
         </FormRowVertical>
 

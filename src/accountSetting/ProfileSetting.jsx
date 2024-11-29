@@ -9,7 +9,7 @@ function ProfileSetting({ email, name, avatar, updateInfo, isUpdating }) {
   function onhandleSubmit(e) {
     e.preventDefault();
 
-    if (!fullName) return;
+    if (!fullName || fullName === name) return;
 
     updateInfo(
       { fullName, avatar: img },

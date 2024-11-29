@@ -1,15 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Logo from "../components/Logo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useLogin from "./useLogin";
-import Spinner from "../components/Spinner";
+import { useAuth } from "../contexts/AuthContext";
 
 function Signinform() {
   const [email, setEmail] = useState("test123@gmail.com");
   const [password, setPassword] = useState("12345678");
+  const navigate = useNavigate();
 
   const { login, isPending } = useLogin();
+  const { isAuthenticated } = useAuth();
+
+  useEffect(() => {
+    if (isAuthenticated) navigate("/account");
+  }, [isAuthenticated, navigate]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -44,7 +50,6 @@ function Signinform() {
           <input
             type="password"
             required
-            autoFocus
             disabled={isPending}
             value={password}
             onChange={(e) => setPassword(e.target.value)}

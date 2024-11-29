@@ -1,8 +1,7 @@
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import Button from "./Button";
 import { useCallback, useEffect, useState } from "react";
-import useRecipes from "../recipes/useRecipes";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 function Search({ isLoading }) {
   const [searchParams, setSearchParams] = useSearchParams();

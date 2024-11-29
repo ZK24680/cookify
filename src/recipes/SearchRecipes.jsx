@@ -20,6 +20,7 @@ function SearchRecipes() {
     [search, refetch],
   );
 
+  console.log(fullName);
   return (
     <div className="h-full w-full">
       <Search isLoading={isLoading} />
@@ -32,7 +33,7 @@ function SearchRecipes() {
 
       {data === undefined && !isLoading && (
         <Message
-          message={`🧑‍🍳 Hello ${fullName.split(" ").at(0)}! Start your cooking journey by searching for delicious meals 🍴`}
+          message={`🧑‍🍳 ${fullName ? `Hello ${fullName?.split(" ").at(0)} !` : ""} Start your cooking journey by searching for delicious meals 🍴`}
         />
       )}
 
