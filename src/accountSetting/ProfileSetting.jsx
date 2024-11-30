@@ -9,7 +9,7 @@ function ProfileSetting({ email, name, avatar, updateInfo, isUpdating }) {
   function onhandleSubmit(e) {
     e.preventDefault();
 
-    if (!fullName || fullName === name) return;
+    if (!fullName || (fullName === name && img === null)) return;
 
     updateInfo(
       { fullName, avatar: img },
@@ -75,7 +75,7 @@ function ProfileSetting({ email, name, avatar, updateInfo, isUpdating }) {
           <Button type="danger" disabled={isUpdating}>
             Cancel
           </Button>
-          <Button type="primary" disabled={isUpdating}>
+          <Button role="submit" type="primary" disabled={isUpdating}>
             {isUpdating ? "Updating...." : "Update account"}
           </Button>
         </FormRowVertical>

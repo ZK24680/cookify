@@ -58,7 +58,7 @@ function Signinform() {
         </div>
 
         <div className="flex w-full flex-col gap-3 sm:w-5/6">
-          <Button type="submit" disabled={isPending}>
+          <Button role="submit" type="submit" disabled={isPending}>
             {isPending ? "Signing In...." : "Sign In"}
           </Button>
         </div>

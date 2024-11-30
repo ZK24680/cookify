@@ -20,7 +20,6 @@ function SearchRecipes() {
     [search, refetch],
   );
 
-  console.log(fullName);
   return (
     <div className="h-full w-full">
       <Search isLoading={isLoading} />

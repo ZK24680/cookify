@@ -10,7 +10,7 @@ function Search({ isLoading }) {
 
   const handleClick = useCallback(() => {
     if (!searchQuery.length) return;
-    console.log("hi");
+
     searchParams.set("main", searchQuery);
 
     setSearchParams(searchParams);

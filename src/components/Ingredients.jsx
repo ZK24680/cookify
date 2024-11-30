@@ -6,7 +6,7 @@ function Ingredients({ recipe }) {
     >
       <h2 className="mb-5 text-3xl tracking-tight">Ingredients</h2>
 
-      <ul className="flex flex-col gap-2 text-xl">
+      <ul className="flex flex-col gap-2 text-sm">
         {Array.from({ length: 20 }).map((_, i) =>
           recipe[`strIngredient${i + 1}`] ? (
             <li key={i}>

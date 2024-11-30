@@ -1,6 +1,12 @@
 const defaultSyle = "rounded-lg    outline-none ";
 
-function Button({ type = "primary", children, onClick, disabled }) {
+function Button({
+  type = "primary",
+  children,
+  onClick,
+  disabled,
+  role = "button",
+}) {
   const style = {
     primary: `bg-[var(--secondary-color)] text-[var(--secondary-text-color)] text-xs md:text-lg  px-3 py-3 hover:bg-[var(--accent-color)] `,
     toggle: `text-2xl px-4 py-2 md:hidden static z-10 text-[var(--primary-text-color)]`,
@@ -12,6 +18,7 @@ function Button({ type = "primary", children, onClick, disabled }) {
 
   return (
     <button
+      type={role}
       onClick={onClick}
       disabled={disabled}
       className={`${type === "icon" ? "" : defaultSyle} ${style[type]}`}

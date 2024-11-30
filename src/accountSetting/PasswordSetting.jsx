@@ -70,10 +70,17 @@ function PasswordSetting({ updateInfo, isUpdating }) {
         </FormRowVertical>
 
         <FormRowVertical role={"button"}>
-          <Button type="danger" disabled={isUpdating}>
+          <Button
+            onClick={() => {
+              setConfirmPassword("");
+              setPassword("");
+            }}
+            type="danger"
+            disabled={isUpdating}
+          >
             Cancel
           </Button>
-          <Button disabled={isUpdating}>
+          <Button role="submit" disabled={isUpdating}>
             {isUpdating ? "Updating..." : "Update Password"}
           </Button>
         </FormRowVertical>

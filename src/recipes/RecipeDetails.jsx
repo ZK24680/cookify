@@ -17,8 +17,6 @@ function RecipeDetails() {
     ?.map((recipe) => recipe?.idMeal)
     .includes(Number(recipe?.idMeal));
 
-  console.log(isSaved, recipe?.idMeal);
-
   if (isLoading || isFetching) return <Spinner />;
 
   return (

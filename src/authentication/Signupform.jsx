@@ -4,12 +4,14 @@ import Logo from "../components/Logo";
 import useSignup from "./useSignup";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
+import ConfirmEmail from "../components/ConfirmEmail";
 
 function Signupform() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showMessage, setShowMessage] = useState(false);
   const navigate = useNavigate();
 
   const { signup, isPending } = useSignup();
@@ -17,8 +19,6 @@ function Signupform() {
   const { isAuthenticated } = useAuth();
 
   const isValidEmail = /^\S+@\S+\.\S+$/.test(email);
-
-  console.log(isAuthenticated);
 
   useEffect(() => {
     if (isAuthenticated) navigate("/account");
@@ -37,10 +37,19 @@ function Signupform() {
     )
       return;
 
-    signup({ email, password, fullName });
+    signup(
+      { email, password, fullName },
+      {
+        onSuccess: () => {
+          setShowMessage(true);
+        },
+      },
+    );
   }
 
-  return (
+  return showMessage ? (
+    <ConfirmEmail setShowMessage={setShowMessage} />
+  ) : (
     <div className="flex w-11/12 flex-col items-center rounded-xl bg-[var(--background-color)] p-4 shadow-2xl sm:w-4/5 md:w-2/3 md:pb-11 xl:w-2/5 xl:pb-16">
       <Logo style={` h-24 sm:h-40 `} />
 
@@ -108,7 +117,7 @@ function Signupform() {
         </div>
 
         <div className="flex w-full flex-col gap-3 sm:w-5/6">
-          <Button type="submit" disabled={isPending}>
+          <Button role="submit" type="submit" disabled={isPending}>
             {isPending ? "Loading...." : "Register"}
           </Button>
         </div>

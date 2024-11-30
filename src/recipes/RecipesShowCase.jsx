@@ -12,6 +12,10 @@ function RecipesShowCase({ category }) {
 
       {error && <Message message={error} />}
 
+      {data?.length === 0 && (
+        <Message message={"🍳 There is no saved recipes 🥘"} />
+      )}
+
       {data && <Recipes recipes={data} />}
     </div>
   );
