@@ -43,12 +43,7 @@ function Homepage() {
         </div>
 
         <div className="hidden items-center justify-center md:flex">
-          <img
-            src="../src/assets/images/food2.png"
-            width="90%"
-            alt="recipe"
-            height="90%"
-          />
+          <img src="/food2.png" width="90%" alt="recipe" height="90%" />
         </div>
       </main>
     </div>

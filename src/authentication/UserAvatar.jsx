@@ -17,7 +17,7 @@ function UserAvatar({ avatar }) {
       <img
         className="h-10 w-10 cursor-pointer rounded-full border border-[var(--border-color)] sm:h-14 sm:w-14"
         onClick={() => navigate("/account")}
-        src={avatar || "../src/assets/images/default-user.jpg"}
+        src={avatar || "/default-user.jpg"}
       />
 
       <SavedButton />
