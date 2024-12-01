@@ -1,14 +1,28 @@
-const defaultSyle =
-  "rounded-lg   text-slate-100 outline-none hover:bg-[#B03030]";
+const defaultSyle = "rounded-lg    outline-none ";
 
-function Button({ type = "primary", children, onClick }) {
+function Button({
+  type = "primary",
+  children,
+  onClick,
+  disabled,
+  role = "button",
+}) {
   const style = {
-    primary: `bg-[#4A302F] text-xs md:text-lg  px-5 py-3 `,
-    toggle: `text-2xl px-4 py-2 md:hidden static z-10 `,
+    primary: `bg-[var(--secondary-color)] text-[var(--secondary-text-color)] text-xs md:text-lg  px-3 py-3 hover:bg-[var(--accent-color)] `,
+    toggle: `text-2xl px-4 py-2 md:hidden static z-10 text-[var(--primary-text-color)]`,
+    icon: `flex items-center justify-center hover:bg-[var(--accent-color)] rounded-full bg-[var(--primary-color)] px-2 py-2 text-xl text-[var(--secondary-text-color)]  sm:px-3 sm:py-3`,
+    signIn: `flex items-center justify-center gap-1 rounded-md bg-[var(--secondary-color)] px-1 py-2 text-xs  tracking-tight  text-[var(--secondary-text-color)] hover:bg-[var(--accent-color)]`,
+    submit: `bg-[var(--secondary-color)] border-none px-1 py-4  xl:px-2  text-[var(--secondary-text-color)] transition duration-300 ease-in-out hover:bg-[var(--accent-color)]`,
+    danger: `bg-[var(--primary-color)] text-[var(--secondary-text-color)] text-xs md:text-lg  px-3 py-4 hover:bg-[#ff3838] `,
   };
 
   return (
-    <button className={`${defaultSyle} ${style[type]} `} onClick={onClick}>
+    <button
+      type={role}
+      onClick={onClick}
+      disabled={disabled}
+      className={`${type === "icon" ? "" : defaultSyle} ${style[type]}`}
+    >
       {children}
     </button>
   );

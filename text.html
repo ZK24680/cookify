@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Cookify</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Montserrat", sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(135deg, #ff8c42, #ff3d00);
+        color: white;
+        padding: 30px 0;
+        text-align: center;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 3rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .about-section {
+        background: white;
+        border-radius: 12px;
+        padding: 40px;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .about-section h2 {
+        font-size: 2.5rem;
+        color: #ff3d00;
+        margin-bottom: 20px;
+      }
+
+      .about-section p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #555;
+      }
+
+      .mission-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 40px 0;
+      }
+
+      .mission-section div {
+        flex: 1;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .mission-section img {
+        width: 100px;
+        margin-bottom: 15px;
+      }
+
+      .contact-section {
+        background: #ffe4d9;
+        padding: 40px;
+        border-radius: 12px;
+        text-align: center;
+      }
+
+      .contact-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #ff8c42;
+      }
+
+      .contact-info p {
+        font-size: 1.2rem;
+        margin: 10px 0;
+        color: #555;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+        margin-top: 40px;
+      }
+
+      img.responsive {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2rem;
+        }
+
+        .about-section h2,
+        .contact-section h2 {
+          font-size: 2rem;
+        }
+
+        .mission-section {
+          flex-direction: column;
+        }
+
+        .mission-section div {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .about-section p,
+        .contact-info p {
+          font-size: 1rem;
+        }
+
+        .mission-section img {
+          width: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Cookify</h1>
+    </header>
+
+    <div class="container">
+      <section class="about-section">
+        <h2>About Us</h2>
+        <img src="about-cookify.jpg" alt="Cooking image" class="responsive" />
+        <p>
+          At Cookify, we bring together food enthusiasts and aspiring chefs to
+          explore, create, and share recipes that inspire joy in cooking. From
+          easy weeknight dinners to elaborate feasts, Cookify is here to fuel
+          your culinary journey.
+        </p>
+      </section>
+
+      <section class="mission-section">
+        <div>
+          <img src="mission-icon-1.png" alt="Icon for discovery" />
+          <h3>Discover Recipes</h3>
+          <p>
+            Browse a wide variety of recipes tailored to your tastes and dietary
+            needs.
+          </p>
+        </div>
+        <div>
+          <img src="mission-icon-2.png" alt="Icon for creativity" />
+          <h3>Get Inspired</h3>
+          <p>
+            Learn from expert tips and creative ideas to elevate your cooking
+            skills.
+          </p>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <h2>Contact Us</h2>
+        <img src="contact-us.jpg" alt="Contact image" class="responsive" />
+        <p>
+          We would love to hear from you! If you have questions, suggestions, or
+          feedback, feel free to reach out to us.
+        </p>
+        <div class="contact-info">
+          <p><strong>Email:</strong> support@cookify.com</p>
+          <p><strong>Phone:</strong> +1 234 567 890</p>
+          <p><strong>Address:</strong> 123 Cookify Lane, Food City, FC 56789</p>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Cookify. Your Recipe Partner. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
