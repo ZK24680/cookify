@@ -21,6 +21,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import SavedRecipes from "./recipes/SavedRecipes";
 import Signup from "./pages/Signup";
 import { Toaster } from "react-hot-toast";
+import PageNotFound from "./pages/PageNotFound";
 
 const router = createBrowserRouter([
   {
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
   {
     path: "/account",
     element: <AccountDetails />,
+  },
+  {
+    path: "*",
+    element: <PageNotFound />,
   },
 ]);
 

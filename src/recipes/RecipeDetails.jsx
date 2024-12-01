@@ -7,6 +7,7 @@ import { useRecipe } from "./useRecipe";
 import Spinner from "../components/Spinner";
 import ButtonGroup from "../components/ButtonGroup";
 import useRecipesByCate from "./useRecipesByCate";
+import Message from "../components/Message";
 
 function RecipeDetails() {
   const { recipe, error, isLoading } = useRecipe();
@@ -18,6 +19,8 @@ function RecipeDetails() {
     .includes(Number(recipe?.idMeal));
 
   if (isLoading || isFetching) return <Spinner />;
+
+  if (!recipe?.idMeal) return <Message message={"😔Something Went Wrong"} />;
 
   return (
     <div className="h-full w-full overflow-scroll px-3 pb-9">
