@@ -20,6 +20,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { AuthProvider } from "./contexts/AuthContext";
 import SavedRecipes from "./recipes/SavedRecipes";
 import Signup from "./pages/Signup";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
@@ -98,6 +99,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
+      <Toaster position="top-center" gutter={8} />
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>

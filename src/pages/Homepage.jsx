@@ -11,7 +11,7 @@ function Homepage() {
 
       <main
         id="heroSection"
-        className="mx-auto grid w-11/12 grid-cols-1 p-10 md:grid-cols-2 md:grid-rows-[2fr_1fr]"
+        className="mx-auto grid w-11/12 grid-cols-1 p-10 md:grid-cols-2"
       >
         <div className="flex flex-col justify-center">
           <div className="w-full text-center text-2xl sm:text-4xl md:w-11/12 md:text-start md:text-2xl lg:text-4xl xl:text-4xl 2xl:text-5xl">
@@ -50,8 +50,6 @@ function Homepage() {
             height="90%"
           />
         </div>
-
-        <div className="md:col-span-2">Slider</div>
       </main>
     </div>
   );

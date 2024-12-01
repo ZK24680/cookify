@@ -16,7 +16,6 @@ function ProfileSetting({ email, name, avatar, updateInfo, isUpdating }) {
       {
         onSuccess: () => {
           setImg(null);
-          e.target.reset();
         },
       },
     );
@@ -72,7 +71,13 @@ function ProfileSetting({ email, name, avatar, updateInfo, isUpdating }) {
         </FormRowVertical>
 
         <FormRowVertical role={"button"}>
-          <Button type="danger" disabled={isUpdating}>
+          <Button
+            type="danger"
+            onClick={(e) => {
+              setFullName(name);
+            }}
+            disabled={isUpdating}
+          >
             Cancel
           </Button>
           <Button role="submit" type="primary" disabled={isUpdating}>

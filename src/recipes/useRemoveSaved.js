@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { removeFromSaved } from "../services/recipeApi";
+import toast from "react-hot-toast";
 
 function useRemoveSaved() {
   const queryClient = useQueryClient();
@@ -13,6 +14,7 @@ function useRemoveSaved() {
       queryClient.invalidateQueries({
         queryKey: ["recipes", "saved"],
       });
+      toast.success("Removed Successful🔨");
     },
   });
 

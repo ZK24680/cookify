@@ -6,8 +6,8 @@ import useLogin from "./useLogin";
 import { useAuth } from "../contexts/AuthContext";
 
 function Signinform() {
-  const [email, setEmail] = useState("test123@gmail.com");
-  const [password, setPassword] = useState("12345678");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const { login, isPending } = useLogin();
